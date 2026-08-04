@@ -1,6 +1,6 @@
 # Asset Management System
 
-> **A full-stack web application for managing and tracking IT assets within an organization. The system provides role-based access, allowing administrators to manage assets while general users can search, view, and export asset information.**
+> **A full-stack web application for managing and tracking assets within an organization. The system provides role-based access, allowing administrators to manage assets while general users can search, view, and export asset information.**
 
 > [!IMPORTANT]
 > **When logging in for the first time, use `username: admin` and `password: Admin@123` for the administrator account. You can modify the administrator credentials in `backend/utils/seed.js`. For all other users, use their assigned lowercase username and their Employee Code as the default password. Demo user data can be found in `backend/utils/data/`. Everyone will be prompted to change their password after their first login and can change it again later from within the application. This project doesn't include a Forgot Password feature, so feel free to add one if you need it.**
