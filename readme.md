@@ -39,6 +39,7 @@ The system stores different information depending on the asset type.
 | Search assets | - |
 | Export assets | - |
 <br>
+
 ### Technologies Used
 
 1️⃣ Frontend: HTML, CSS, JavaScript (ES6), Vite<br>
