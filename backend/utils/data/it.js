@@ -1,70 +1,48 @@
-
 module.exports = [
-  // IT - Desktop
   {
-    assetType: 'Desktop',
-    department: 'IT',
-    username: 'it.support.pacharia',
-    employeeCode: '',
-    assetCode: '1302144',
-    hostname: 'UN13-D-1302144',
-    storage: '932GB',
-    ram: '16GB',
-    processor: 'Intel® Core i5-8400',
-    serialNumber: '8CG9251VPX',
-    location: 'IT, First Floor',
-    status: 'Functional'
-  },
-
-  // IT - Laptop
-  {
-    assetType: 'Laptop',
-    department: 'IT',
-    username: 'mintu.dutta',
-    employeeCode: 'EMP001',
-    assetCode: '1305364',
-    hostname: 'UN13-L-1305364',
-    storage: '954GB',
-    ram: '16GB',
-    processor: 'Intel® Core i5-1245U',
-    serialNumber: '82VQMZ3',
-    location: 'IT, First Floor',
-    status: 'Functional'
+    assetType: "Desktop",
+    department: "IT",
+    username: "Daniel Wilson",
+    employeeCode: "EMP005",
+    assetCode: "AST0009",
+    hostname: "DT-003",
+    storage: "1 TB SSD",
+    ram: "32 GB",
+    processor: "Intel Core i7-12700",
+    serialNumber: "SN100009",
+    location: "IT Office",
+    status: "Functional",
   },
   {
-    assetType: 'Laptop',
-    department: 'IT',
-    username: '',
-    employeeCode: '',
-    assetCode: '1304480',
-    hostname: 'UN13-L-1304480',
-    storage: '250GB+500GB',
-    ram: '8GB',
-    processor: 'Intel® Core i5-1245U',
-    serialNumber: '6VZDN93',
-    location: 'IT, First Floor',
-    status: 'Functional'
+    assetType: "Laptop",
+    department: "IT",
+    username: "Olivia Taylor",
+    employeeCode: "EMP006",
+    assetCode: "AST0010",
+    hostname: "LT-003",
+    storage: "512 GB SSD",
+    ram: "16 GB",
+    processor: "Intel Core i7-1260P",
+    serialNumber: "SN100010",
+    location: "IT Office",
+    status: "Functional",
   },
-
-  // IT - Printer
   {
-    assetType: 'Printer',
-    department: 'IT',
-    assetCode: '1305798',
-    serialNumber: 'X94V032759',
-    ipAddress: 'USB',
-    location: 'IT, First Floor',
-    status: 'Functional'
+    assetType: "Printer",
+    department: "IT",
+    assetCode: "AST0011",
+    serialNumber: "SN100011",
+    ipAddress: "192.168.1.103",
+    location: "IT Office",
+    status: "Functional",
   },
-
- // IT - Scanner
- {
-   assetType: 'Scanner',
-   department: 'IT',
-   assetCode: '1303435',
-   serialNumber: 'KDMA80896',
-   model: 'CANON',
-   location: 'IT, 1st Floor',
-   status: 'Functional'
- },
+  {
+    assetType: "Scanner",
+    department: "IT",
+    assetCode: "AST0012",
+    serialNumber: "SN100012",
+    model: "HP ScanJet Pro 3000",
+    location: "IT Office",
+    status: "Functional",
+  },
 ];

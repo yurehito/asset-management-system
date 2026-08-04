@@ -10,13 +10,21 @@ const maintenanceAssets = require('./data/maintenance');
 const commercialAssets = require('./data/commercial');
 const adminAssets = require('./data/admin');
 const itAssets = require('./data/it');
+const routerAssets = require('./data/router');
+const switchAssets = require('./data/switch');
+const firewallAssets = require('./data/firewall');
+const iotAssets = require('./data/iot');
 
 const assets = [
   ...productionAssets,
   ...maintenanceAssets,
   ...commercialAssets,
   ...adminAssets,
-  ...itAssets
+  ...itAssets,
+  ...routerAssets,
+  ...switchAssets,
+  ...firewallAssets,
+  ...iotAssets
 ];
 
 const cleanedAssets = assets.map(asset => {
@@ -36,9 +44,9 @@ const cleanedAssets = assets.map(asset => {
 const adminUser = {
   username: 'admin',
   role: 'admin',
-  employeeCode: 'ADMIN-000',
-  password: 'adminXD',
-  displayName: 'admin',
+  employeeCode: 'ADMIN001',
+  password: 'Admin@123',
+  displayName: 'System Administrator',
   forcePasswordChange: false
 };
 
