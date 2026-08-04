@@ -41,34 +41,34 @@ The system stores different information depending on the asset type.
 
 ### Technologies Used
 
-**1️⃣ Frontend:** HTML, CSS, JavaScript (ES6), Vite<br>
-**2️⃣ Backend:** Node.js, Express.js<br>
-**3️⃣ Database:** MongoDB, Mongoose
+1️⃣ Frontend: HTML, CSS, JavaScript (ES6), Vite<br>
+2️⃣ Backend: Node.js, Express.js<br>
+3️⃣ Database: MongoDB, Mongoose
 
 ### Installation
 
-**1️⃣ Clone the repository:**
+1️⃣ Clone the repository:
 
 ```bash
 git clone https://github.com/yurehito/asset-management-system.git
 cd asset-management-system
 ```
 
-**2️⃣ Install backend dependencies:**
+2️⃣ Install backend dependencies:
 
 ```bash
 cd backend
 npm install
 ```
 
-**3️⃣ Install frontend dependencies:**
+3️⃣ Install frontend dependencies:
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-**4️⃣ Environment Variables:**
+4️⃣ Environment Variables:
 
 Create a `.env` file inside the `backend` directory.
 
@@ -78,7 +78,7 @@ NODE_ENV=development
 PORT=5000
 ```
 
-**5️⃣ Seed Demo Data:**
+5️⃣ Seed Demo Data:
 
 ```bash
 cd backend
@@ -96,14 +96,14 @@ npm run dev
 
 ### Customization
 
-**1️⃣ Backend:**
+1️⃣ Backend:
 
 - `backend/utils/data/` – Demo asset data
 - `backend/utils/seed.js` – Administrator account & database seeding
 - `backend/models/Asset.js` – Asset schema
 - `backend/services/assetService.js` – Asset logic and services
 
-**2️⃣ Frontend:**
+2️⃣ Frontend:
 
 - `frontend/assets/` – Logo and images
 - `frontend/index.html` – Favicon, logo, application title, and other frontend elements
