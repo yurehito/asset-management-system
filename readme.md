@@ -38,7 +38,7 @@ The system stores different information depending on the asset type.
 | Reissue assets | - |
 | Search assets | - |
 | Export assets | - |
-
+<br>
 ### Technologies Used
 
 1️⃣ Frontend: HTML, CSS, JavaScript (ES6), Vite<br>
@@ -108,7 +108,7 @@ npm run dev
 - `frontend/assets/` – Logo and images
 - `frontend/index.html` – Favicon, logo, application title, and other frontend elements
 
----
+<br><br>
 
 > [!IMPORTANT]
 > When logging in for the first time, use the administrator credentials **Username:** `admin` and **Password:** `Admin@123`. For all other user accounts, the default password is their **Employee Code**. Users will be prompted to change their password after their first login and can update it again later from within the application.
