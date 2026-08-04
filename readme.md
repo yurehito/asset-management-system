@@ -38,7 +38,6 @@ The system stores different information depending on the asset type.
 | Reissue assets | - |
 | Search assets | - |
 | Export assets | - |
-<br>
 
 ### Technologies Used
 
