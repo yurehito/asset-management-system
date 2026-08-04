@@ -1,0 +1,17 @@
+{
+  "name": "ams-asset-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Asset Management System",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

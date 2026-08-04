@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset Management System</title>
+  <link rel="stylesheet" href="/src/css/main.css">
+  <link rel="stylesheet" href="/src/css/navbar.css">
+  <link rel="stylesheet" href="/src/css/themes.css">
+  <link rel="stylesheet" href="/src/css/dashboard.css">
+  <link rel="stylesheet" href="/src/css/tables.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+  <link rel="stylesheet" href="/src/css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232563eb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-size='34' font-family='Arial, sans-serif' font-weight='bold' fill='white'>AMS</text></svg>"
+>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+          <div class="navbar-logo" style="width:40px;height:40px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">AMS</div>
+          <span class="navbar-title">Asset Management System</span>
+        </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="contact-btn" id="contact-btn">Contact Us</button>
+        <div class="profile-menu hidden" id="profile-menu">
+          <button class="profile-btn" id="profile-btn" aria-haspopup="true" aria-expanded="false">
+            <span class="profile-avatar" id="profile-avatar">U</span>
+            <span class="profile-info">
+              <span class="profile-name" id="profile-name">User</span>
+              <span class="profile-role" id="profile-role">user</span>
+            </span>
+            <svg class="profile-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="profile-dropdown hidden" id="profile-dropdown">
+            <div class="profile-dropdown-header">
+              <div class="profile-dropdown-name" id="profile-dropdown-name">User</div>
+              <div class="profile-dropdown-meta" id="profile-dropdown-meta"></div>
+            </div>
+            <button class="profile-dropdown-item" id="change-password-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Change Password</span>
+            </button>
+            <button class="profile-dropdown-item danger" id="sign-out-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content" id="main-content">
+    <section class="page login-page" id="login-page">
+      <div class="login-container">
+        <div class="login-header">
+          <div class="login-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h2 class="login-title">IT Assets</h2>
+          <p class="login-subtitle">Sign in to your account</p>
+        </div>
+        <form id="login-form" class="login-form">
+          <div class="login-error" id="login-error"></div>
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" name="username" required placeholder="Enter your username" autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="login-password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+              <button type="button" class="password-toggle" aria-label="Show password" data-target="login-password">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="form-actions login-actions">
+            <button type="submit" class="btn-submit">Sign In</button>
+          </div>
+        </form>
+        <p class="login-hint">Default password is your Employee Code. You will be asked to change it on first login.</p>
+      </div>
+    </section>
+
+    <section class="page landing-page hidden" id="landing-page">
+      <div class="landing-container">
+        <div class="welcome-section">
+          <div class="user-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="welcome-username" id="username-display">Welcome, User</h2>
+          <p class="welcome-message">Welcome to the Asset Management System. Manage and view your organization's IT assets efficiently.</p>
+        </div>
+        <button class="enter-btn" id="enter-btn">
+          <span>Enter</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="page dashboard-page hidden" id="dashboard-page">
+      <div class="page-header">
+        <h1>Asset Dashboard</h1>
+        <p>Select an asset type to view department-wise assets</p>
+      </div>
+      <div class="asset-cards">
+        <div class="asset-card" data-asset-type="Desktop">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Desktop</h3>
+            <p class="asset-count" id="desktop-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Scanner">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <rect x="7" y="8" width="10" height="2"></rect>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Scanner</h3>
+            <p class="asset-count" id="scanner-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Printer">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Printer</h3>
+            <p class="asset-count" id="printer-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Laptop">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="12" rx="2" ry="2"></rect>
+              <line x1="2" y1="20" x2="22" y2="20"></line>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Laptop</h3>
+            <p class="asset-count" id="laptop-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Router">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              <line x1="10" y1="18" x2="10.01" y2="18"></line>
+              <path d="M12 14v-4"></path>
+              <path d="M8 10a4 4 0 0 1 8 0"></path>
+              <path d="M5 7a7 7 0 0 1 14 0"></path>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Router</h3>
+            <p class="asset-count" id="router-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Switch">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="8" width="20" height="8" rx="2"></rect>
+              <line x1="6" y1="12" x2="6.01" y2="12"></line>
+              <line x1="10" y1="12" x2="10.01" y2="12"></line>
+              <line x1="14" y1="12" x2="14.01" y2="12"></line>
+              <line x1="18" y1="12" x2="18.01" y2="12"></line>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Switch</h3>
+            <p class="asset-count" id="switch-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="Firewall">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"></path>
+              <line x1="9" y1="9" x2="9" y2="9"></line>
+              <line x1="15" y1="9" x2="15" y2="9"></line>
+              <line x1="9" y1="13" x2="9" y2="13"></line>
+              <line x1="15" y1="13" x2="15" y2="13"></line>
+              <line x1="12" y1="11" x2="12" y2="11"></line>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>Firewall</h3>
+            <p class="asset-count" id="firewall-count">0 Assets</p>
+          </div>
+        </div>
+        <div class="asset-card" data-asset-type="IoT Devices">
+          <div class="asset-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+          </div>
+          <div class="asset-card-content">
+            <h3>IoT Devices</h3>
+            <p class="asset-count" id="iot-count">0 Assets</p>
+          </div>
+        </div>
+      </div>
+      <div class="global-search-section">
+        <h2>Global Search</h2>
+        <p>Search across all asset types by Username, Employee Code, Asset Code, or Serial Number</p>
+        <div class="global-search-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input type="text" id="global-search-input" placeholder="Enter Username, Employee Code, Asset Code, or Serial Number..." class="global-search-input">
+          <button class="global-search-btn" id="global-search-btn">Search</button>
+          <button class="global-search-btn clear-btn" id="global-search-clear-btn">Clear</button>
+        </div>
+        <div class="global-search-results hidden" id="global-search-results">
+          <div class="global-search-table-wrap">
+            <table class="global-search-table">
+              <thead>
+                <tr>
+                  <th>Asset Type</th>
+                  <th>Username</th>
+                  <th>Employee Code</th>
+                  <th>Asset Code</th>
+                  <th>Serial Number</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="global-search-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-actions">
+        <button class="dashboard-action-btn add-asset-btn admin-only" id="add-asset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Add Asset</span>
+        </button>
+        <button class="dashboard-action-btn issue-btn admin-only" id="issue-asset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span>Submit Asset</span>
+        </button>
+        <button class="dashboard-action-btn reissue-btn admin-only" id="reissue-asset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          <span>Reissue Asset</span>
+        </button>
+        <button class="dashboard-action-btn download-all-btn" id="download-all-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download All Data</span>
+        </button>
+        <button class="dashboard-action-btn remove-asset-btn admin-only" id="remove-asset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Remove Asset</span>
+        </button>
+        <button class="dashboard-action-btn update-asset-btn admin-only" id="update-asset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+          <span>Update Asset</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="page departments-page hidden" id="departments-page">
+      <div class="page-header">
+        <button class="back-btn" id="back-to-dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+          </svg>
+          <span>Back</span>
+        </button>
+        <h1 id="department-title">Asset Type - Departments</h1>
+        <p>Select a department to view assets</p>
+      </div>
+      <div class="department-cards" id="department-cards"></div>
+    </section>
+
+    <section class="page assets-page hidden" id="assets-page">
+      <div class="page-header">
+        <button class="back-btn" id="back-to-departments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+          </svg>
+          <span>Back</span>
+        </button>
+        <h1 id="assets-title">Asset Information</h1>
+        <p id="assets-subtitle">Viewing assets for department</p>
+      </div>
+      <div class="assets-controls">
+        <div class="search-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search by Username, Employee Code, Asset Code, Hostname, or Serial Number..." class="search-input">
+        </div>
+        <div class="filter-container">
+          <select id="status-filter" class="status-filter">
+            <option value="All">All Status</option>
+            <option value="Functional">Functional</option>
+            <option value="Need Replacement">Need Replacement</option>
+            <option value="Not Functional">Not Functional</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn download-btn" id="download-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download CSV</span>
+          </button>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="assets-table" id="assets-table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Employee Code</th>
+              <th>Asset Code</th>
+              <th>Hostname</th>
+              <th>storage</th>
+              <th>RAM</th>
+              <th>Processor</th>
+              <th>Serial Number</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="assets-tbody"></tbody>
+        </table>
+      </div>
+      <div class="table-info">
+        <span id="table-count">Showing 0 assets</span>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="contact-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Contact Us</h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <h4>Email</h4>
+              <p>example@example.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 33 2283 5678</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div>
+              <h4>Address</h4>
+              <p>Eaxmple, Eaxmple</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-overlay hidden" id="loading-overlay">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="add-asset-modal">
+    <div class="modal-content add-asset-modal-content">
+      <div class="modal-header">
+        <h2>Add Asset</h2>
+        <button class="modal-close" id="add-asset-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="add-asset-form" class="add-asset-form">
+          <div class="form-group">
+            <label for="add-asset-type">Asset Type</label>
+            <select id="add-asset-type" name="assetType" required>
+              <option value="">Select Asset Type</option>
+              <option value="Desktop">Desktop</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Scanner">Scanner</option>
+              <option value="Printer">Printer</option>
+              <option value="Router">Router</option>
+              <option value="Switch">Switch</option>
+              <option value="Firewall">Firewall</option>
+              <option value="IoT Devices">IoT Devices</option>
+            </select>
+          </div>
+          <div class="form-group" id="add-asset-department-group">
+            <label for="add-asset-department">Department</label>
+            <select id="add-asset-department" name="department">
+              <option value="">Select Department</option>
+              <option value="Commercial">Commercial</option>
+              <option value="HR">HR</option>
+              <option value="IT">IT</option>
+              <option value="Production">Production</option>
+              <option value="Maintenance">Quality</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="form-group full-fields" id="add-username-group">
+            <label for="add-username">Username</label>
+            <input type="text" id="add-username" name="username" placeholder="Enter username">
+          </div>
+          <div class="form-group full-fields" id="add-employee-code-group">
+            <label for="add-employee-code">Employee Code</label>
+            <input type="text" id="add-employee-code" name="employeeCode" placeholder="e.g., EMP-IT-001">
+          </div>
+          <div class="form-group">
+            <label for="add-asset-code">Asset Code</label>
+            <input type="text" id="add-asset-code" name="assetCode" required placeholder="e.g., DT-IT-001">
+          </div>
+          <div class="form-group full-fields" id="add-hostname-group">
+            <label for="add-hostname">Hostname</label>
+            <input type="text" id="add-hostname" name="hostname" placeholder="e.g., IT-WS-001">
+          </div>
+          <div class="form-group full-fields" id="add-storage-group">
+            <label for="add-storage">Storage</label>
+            <input type="text" id="add-storage" name="storage" placeholder="e.g., 250 + 1TB">
+          </div>
+          <div class="form-group full-fields" id="add-ram-group">
+            <label for="add-ram">RAM</label>
+            <input type="text" id="add-ram" name="ram" placeholder="e.g., 8GB DDR4">
+          </div>
+          <div class="form-group full-fields" id="add-processor-group">
+            <label for="add-processor">Processor</label>
+            <input type="text" id="add-processor" name="processor" placeholder="e.g., Intel Core i5-10400">
+          </div>
+          <div class="form-group">
+            <label for="add-serial-number">Serial Number</label>
+            <input type="text" id="add-serial-number" name="serialNumber" required placeholder="e.g., SN-IT-001">
+          </div>
+          <div class="form-group" id="add-model-group" style="display:none">
+            <label for="add-model">Model</label>
+            <input type="text" id="add-model" name="model" placeholder="e.g., Canon DR-C240">
+          </div>
+          <div class="form-group" id="add-ip-address-group" style="display:none">
+              <label for="add-ip-address">IP Address</label>
+               <input type="text" id="add-ip-address" name="ipAddress" placeholder="e.g., 10.0.47.100">
+          </div>
+          <div class="form-group full-fields" id="add-status-group">
+            <label for="add-status">Status</label>
+            <select id="add-status" name="status">
+              <option value="Functional">Functional</option>
+              <option value="Need Replacement">Need Replacement</option>
+              <option value="Not Functional">Not Functional</option>
+            </select>
+          </div>
+          <div class="form-group" id="add-location-group" style="display:none">
+            <label for="add-location">Location</label>
+            <input type="text" id="add-location" name="location" placeholder="e.g., Server Room, Floor 2">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="add-asset-cancel-btn">Cancel</button>
+            <button type="submit" class="btn-submit add-asset-submit-btn">Add Asset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="issue-modal">
+    <div class="modal-content issue-modal-content">
+      <div class="modal-header">
+        <h2>Submit Asset</h2>
+        <button class="modal-close" id="issue-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="issue-stage-1" class="issue-stage">
+          <div class="stage-indicator"><span class="stage-dot active">1</span><span class="stage-line"></span><span class="stage-dot">2</span><span class="stage-line"></span><span class="stage-dot">3</span></div>
+          <p class="stage-label">Stage 1: Enter Asset Code or Serial Number</p>
+          <form id="issue-stage1-form" class="issue-form">
+            <div class="form-group">
+              <label for="issue-serial-number">Asset Code or Serial Number</label>
+              <input type="text" id="issue-serial-number" name="serialNumber" required placeholder="Enter Asset Code or Serial Number" autocomplete="off">
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="issue-cancel-btn">Cancel</button>
+              <button type="submit" class="btn-submit issue-submit-btn">Proceed</button>
+            </div>
+          </form>
+        </div>
+        <div id="issue-stage-2" class="issue-stage hidden">
+          <div class="stage-indicator"><span class="stage-dot done">1</span><span class="stage-line"></span><span class="stage-dot active">2</span><span class="stage-line"></span><span class="stage-dot">3</span></div>
+          <p class="stage-label">Stage 2: Asset Information</p>
+          <div class="asset-info-display" id="asset-info-display"></div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="issue-stage2-back-btn">Back</button>
+            <button type="button" class="btn-submit issue-submit-btn" id="issue-stage2-next-btn">Next</button>
+          </div>
+        </div>
+        <div id="issue-stage-3" class="issue-stage hidden">
+          <div class="stage-indicator"><span class="stage-dot done">1</span><span class="stage-line"></span><span class="stage-dot done">2</span><span class="stage-line"></span><span class="stage-dot active">3</span></div>
+          <p class="stage-label">Stage 3: Describe the Issue</p>
+          <form id="issue-stage3-form" class="issue-form">
+            <div class="form-group">
+              <label for="issue-description">Issue Description</label>
+              <textarea id="issue-description" name="issueDescription" required placeholder="Describe the issue..." rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="issue-stage3-back-btn">Back</button>
+              <button type="submit" class="btn-submit issue-submit-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="reissue-modal">
+    <div class="modal-content reissue-modal-content">
+      <div class="modal-header">
+        <h2>Reissue Asset</h2>
+        <button class="modal-close" id="reissue-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="reissue-form" class="reissue-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reissue-asset-code">Asset Code</label>
+              <input type="text" id="reissue-asset-code" name="assetCode" required placeholder="e.g., DT-IT-001">
+            </div>
+            <div class="form-group">
+              <label for="reissue-serial-number">Serial Number</label>
+              <input type="text" id="reissue-serial-number" name="serialNumber" required placeholder="e.g., SN-IT-001">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="repair-remark">Repair Remark</label>
+            <textarea id="repair-remark" name="repairRemark" required placeholder="Describe the repair work done..." rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="reissue-cancel-btn">Cancel</button>
+            <button type="submit" class="btn-submit reissue-submit-btn">Reissue Asset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="remove-asset-modal">
+    <div class="modal-content remove-asset-modal-content">
+      <div class="modal-header">
+        <h2>Remove Asset</h2>
+        <button class="modal-close" id="remove-asset-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="remove-stage-1" class="issue-stage">
+          <div class="stage-indicator"><span class="stage-dot active">1</span><span class="stage-line"></span><span class="stage-dot">2</span><span class="stage-line"></span><span class="stage-dot">3</span></div>
+          <p class="stage-label">Stage 1: Enter Asset Code or Serial Number</p>
+          <form id="remove-stage1-form" class="issue-form">
+            <div class="form-group">
+              <label for="remove-asset-code">Asset Code or Serial Number</label>
+              <input type="text" id="remove-asset-code" name="assetCode" required placeholder="Enter Asset Code or Serial Number" autocomplete="off">
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="remove-cancel-btn">Cancel</button>
+              <button type="submit" class="btn-submit remove-asset-submit-btn">Proceed</button>
+            </div>
+          </form>
+        </div>
+        <div id="remove-stage-2" class="issue-stage hidden">
+          <div class="stage-indicator"><span class="stage-dot done">1</span><span class="stage-line"></span><span class="stage-dot active">2</span><span class="stage-line"></span><span class="stage-dot">3</span></div>
+          <p class="stage-label">Stage 2: Asset Information</p>
+          <div class="asset-info-display" id="remove-asset-info-display"></div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="remove-stage2-back-btn">Back</button>
+            <button type="button" class="btn-submit remove-asset-delete-btn" id="remove-stage2-delete-btn">Delete Asset</button>
+          </div>
+        </div>
+        <div id="remove-stage-3" class="issue-stage hidden">
+          <div class="stage-indicator"><span class="stage-dot done">1</span><span class="stage-line"></span><span class="stage-dot done">2</span><span class="stage-line"></span><span class="stage-dot active">3</span></div>
+          <p class="stage-label">Stage 3: Confirm Deletion</p>
+          <div class="confirmation-dialog">
+            <div class="confirmation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="confirmation-title">Confirm Asset Deletion</h3>
+            <p class="confirmation-message">Are you sure you want to permanently remove this asset? This action cannot be undone.</p>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="remove-confirm-cancel-btn">Cancel</button>
+              <button type="button" class="btn-submit remove-asset-confirm-btn" id="remove-confirm-delete-btn">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="update-asset-modal">
+    <div class="modal-content update-asset-modal-content">
+      <div class="modal-header">
+        <h2>Update Asset</h2>
+        <button class="modal-close" id="update-asset-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="update-stage-1" class="issue-stage">
+          <div class="stage-indicator"><span class="stage-dot active">1</span><span class="stage-line"></span><span class="stage-dot">2</span></div>
+          <p class="stage-label">Stage 1: Enter Asset Code or Serial Number</p>
+          <form id="update-stage1-form" class="issue-form">
+            <div class="form-group">
+              <label for="update-serial-number">Asset Code or Serial Number</label>
+              <input type="text" id="update-serial-number" name="serialNumber" required placeholder="Enter Asset Code or Serial Number" autocomplete="off">
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="update-cancel-btn">Cancel</button>
+              <button type="submit" class="btn-submit update-asset-submit-btn">Proceed</button>
+            </div>
+          </form>
+        </div>
+        <div id="update-stage-2" class="issue-stage hidden">
+          <div class="stage-indicator"><span class="stage-dot done">1</span><span class="stage-line"></span><span class="stage-dot active">2</span></div>
+          <p class="stage-label">Stage 2: Edit Asset Information</p>
+          <form id="update-stage2-form" class="issue-form">
+            <div class="form-group">
+              <label for="update-asset-type-display">Asset Type</label>
+              <input type="text" id="update-asset-type-display" disabled>
+            </div>
+            <div class="form-group" id="update-username-group">
+              <label for="update-username">Username</label>
+              <input type="text" id="update-username" name="username" placeholder="Enter username">
+            </div>
+            <div class="form-group" id="update-employee-code-group">
+              <label for="update-employee-code">Employee Code</label>
+              <input type="text" id="update-employee-code" name="employeeCode" placeholder="e.g., EMP-IT-001">
+            </div>
+            <div class="form-group" id="update-asset-code-group">
+              <label for="update-asset-code">Asset Code</label>
+              <input type="text" id="update-asset-code" name="assetCode" placeholder="e.g., DT-IT-001">
+            </div>
+            <div class="form-group" id="update-hostname-group">
+              <label for="update-hostname">Hostname</label>
+              <input type="text" id="update-hostname" name="hostname" placeholder="e.g., IT-WS-001">
+            </div>
+            <div class="form-group" id="update-storage-group">
+              <label for="update-storage">Storage</label>
+              <input type="text" id="update-storage" name="storage" placeholder="e.g., 250 + 1TB">
+            </div>
+            <div class="form-group" id="update-ram-group">
+              <label for="update-ram">RAM</label>
+              <input type="text" id="update-ram" name="ram" placeholder="e.g., 8GB DDR4">
+            </div>
+            <div class="form-group" id="update-processor-group">
+              <label for="update-processor">Processor</label>
+              <input type="text" id="update-processor" name="processor" placeholder="e.g., Intel Core i5-10400">
+            </div>
+            <div class="form-group" id="update-serial-number-edit-group">
+              <label for="update-serial-number-edit">Serial Number</label>
+              <input type="text" id="update-serial-number-edit" name="serialNumber" placeholder="e.g., SN-IT-001">
+            </div>
+            <div class="form-group" id="update-model-group" style="display:none">
+              <label for="update-model">Model</label>
+              <input type="text" id="update-model" name="model" placeholder="e.g., Canon DR-C240">
+            </div>
+            <div class="form-group" id="update-ip-address-group" style="display:none">
+              <label for="update-ip-address">IP Address</label>
+              <input type="text" id="update-ip-address" name="ipAddress" placeholder="e.g., 10.0.47.100">
+            </div>
+            <div class="form-group" id="update-location-group">
+              <label for="update-location">Location</label>
+              <input type="text" id="update-location" name="location" placeholder="e.g., Server Room, Floor 2">
+            </div>
+            <div class="form-group" id="update-status-group">
+              <label for="update-status">Status</label>
+              <select id="update-status" name="status">
+                <option value="Functional">Functional</option>
+                <option value="Need Replacement">Need Replacement</option>
+                <option value="Not Functional">Not Functional</option>
+              </select>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="update-stage2-back-btn">Back</button>
+              <button type="submit" class="btn-submit update-asset-save-btn">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="change-password-modal">
+    <div class="modal-content change-password-modal-content">
+      <div class="modal-header">
+        <h2>Change Password</h2>
+        <button class="modal-close" id="change-password-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="form-hint" id="change-password-hint">Please change your default password to continue.</p>
+        <form id="change-password-form" class="change-password-form">
+          <div class="form-group">
+            <label for="cp-current-password">Current Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="cp-current-password" name="currentPassword" required placeholder="Enter current password" autocomplete="current-password">
+              <button type="button" class="password-toggle" aria-label="Show password" data-target="cp-current-password">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cp-new-password">New Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="cp-new-password" name="newPassword" required placeholder="At least 6 characters" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password" data-target="cp-new-password">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cp-confirm-password">Confirm New Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="cp-confirm-password" name="confirmPassword" required placeholder="Re-enter new password" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password" data-target="cp-confirm-password">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="change-password-cancel-btn">Cancel</button>
+            <button type="submit" class="btn-submit change-password-submit-btn">Update Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification hidden" id="notification">
+    <span id="notification-message"></span>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

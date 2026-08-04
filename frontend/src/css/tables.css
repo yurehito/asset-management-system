@@ -1,0 +1,221 @@
+.table-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.assets-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.assets-table thead {
+  background: var(--bg-tertiary);
+}
+
+.assets-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.assets-table td {
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Empty value (-) */
+.assets-table td.empty-cell {
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+/* Employee Code */
+.assets-table th:nth-child(2),
+.assets-table td:nth-child(2) {
+  min-width: 120px;
+}
+
+/* Department */
+.assets-table th:nth-child(3),
+.assets-table td:nth-child(3) {
+  min-width: 120px;
+}
+
+/* Asset Code */
+.assets-table th:nth-child(4),
+.assets-table td:nth-child(4) {
+  min-width: 100px;
+}
+
+/* Hostname */
+.assets-table th:nth-child(5),
+.assets-table td:nth-child(5) {
+  min-width: 140px;
+}
+
+/* storage / RAM */
+.assets-table th:nth-child(6),
+.assets-table td:nth-child(6),
+.assets-table th:nth-child(7),
+.assets-table td:nth-child(7) {
+  min-width: 80px;
+}
+
+/* Processor */
+.assets-table th:nth-child(8),
+.assets-table td:nth-child(8) {
+  min-width: 170px;
+}
+
+/* Serial Number */
+.assets-table th:nth-child(9),
+.assets-table td:nth-child(9) {
+  min-width: 120px;
+}
+
+/* Location */
+.assets-table th:nth-child(10),
+.assets-table td:nth-child(10) {
+  min-width: 160px;
+}
+
+/* Status */
+.assets-table th:last-child,
+.assets-table td:last-child {
+  width: 140px;
+  text-align: center;
+}
+
+.assets-table td:last-child .status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assets-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.assets-table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.assets-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.status-functional {
+  background: var(--success-light);
+  color: var(--success-dark);
+}
+
+.status-need-replacement {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+}
+
+.status-not-functional {
+  background: var(--error-light);
+  color: var(--error-dark);
+}
+
+[data-theme="dark"] .status-functional {
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+}
+
+[data-theme="dark"] .status-need-replacement {
+  background: rgba(217, 119, 6, 0.2);
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .status-not-functional {
+  background: rgba(220, 38, 38, 0.2);
+  color: #f87171;
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.empty-state-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-icon svg {
+  width: 36px;
+  height: 36px;
+  color: var(--text-tertiary);
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.empty-state-text {
+  font-size: 0.9375rem;
+  color: var(--text-tertiary);
+  max-width: 360px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.table-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-top: var(--spacing-sm);
+}
+
+#table-count {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+}
