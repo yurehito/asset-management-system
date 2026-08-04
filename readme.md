@@ -1,5 +1,5 @@
 # Asset Management System
-
+> [!NOTE]
 > **A full-stack web application for managing and tracking IT assets within an organization. The system provides role-based access, allowing administrators to manage assets while general users can search, view, and export asset information.**
 
 ### Features
