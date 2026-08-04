@@ -2,7 +2,7 @@
 > **A full-stack web application for managing and tracking IT assets within an organization. The system provides role-based access, allowing administrators to manage assets while general users can search, view, and export asset information.**
 
 > [!IMPORTANT]
-> **When logging in for the first time, use the administrator credentials **Username:** `admin` and **Password:** `Admin@123`. For all other user accounts, the default password is their **Employee Code**. Users will be prompted to change their password after their first login and can update it again later from within the application.**
+> **When logging in for the first time, use the administrator credentials Username: `admin` and Password: `Admin@123`. For all other user accounts, the default password is their Employee Code. Users will be prompted to change their password after their first login and can update it again later from within the application.**
 
 ### Features
 
