@@ -1,5 +1,4 @@
 # Asset Management System
-> [!NOTE]
 > **A full-stack web application for managing and tracking IT assets within an organization. The system provides role-based access, allowing administrators to manage assets while general users can search, view, and export asset information.**
 
 ### Features
@@ -42,22 +41,9 @@ The system stores different information depending on the asset type.
 
 ### Technologies Used
 
-**1️⃣ Frontend:**
-
-- HTML
-- CSS
-- JavaScript (ES6)
-- Vite
-
-**2️⃣ Backend:**
-
-- Node.js
-- Express.js
-
-**3️⃣ Database:**
-
-- MongoDB
-- Mongoose
+**1️⃣ Frontend:** HTML, CSS, JavaScript (ES6), Vite<br>
+**2️⃣ Backend:** Node.js, Express.js<br>
+**3️⃣ Database:** MongoDB, Mongoose
 
 ### Installation
 
