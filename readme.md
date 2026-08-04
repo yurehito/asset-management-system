@@ -42,49 +42,49 @@ The system stores different information depending on the asset type.
 
 ### Technologies Used
 
-1️⃣ Frontend:
+**1️⃣ Frontend:**
 
 - HTML
 - CSS
 - JavaScript (ES6)
 - Vite
 
-2️⃣ Backend:
+**2️⃣ Backend:**
 
 - Node.js
 - Express.js
 
-3️⃣ Database:
+**3️⃣ Database:**
 
 - MongoDB
 - Mongoose
 
 ### Installation
 
-1️⃣ Clone the repository: 
+**1️⃣ Clone the repository:**
 
 ```bash
 git clone https://github.com/yurehito/asset-management-system.git
 cd asset-management-system
 ```
 
-2️⃣ Install backend dependencies:
+**2️⃣ Install backend dependencies:**
 
 ```bash
 cd backend
 npm install
 ```
 
-3️⃣ Install frontend dependencies:
+**3️⃣ Install frontend dependencies:**
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-4️⃣ Environment Variables:
+**4️⃣ Environment Variables:**
 
-Create a `.env` file inside the backend directory.
+Create a `.env` file inside the `backend` directory.
 
 ```env
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/asset_management?retryWrites=true&w=majority&appName=Cluster0
@@ -92,7 +92,7 @@ NODE_ENV=development
 PORT=5000
 ```
 
-5️⃣ Seed Demo Data:
+**5️⃣ Seed Demo Data:**
 
 ```bash
 cd backend
@@ -110,19 +110,21 @@ npm run dev
 
 ### Customization
 
-1️⃣ Backend:
+**1️⃣ Backend:**
 
 - `backend/utils/data/` – Demo asset data
 - `backend/utils/seed.js` – Administrator account & database seeding
 - `backend/models/Asset.js` – Asset schema
 - `backend/services/assetService.js` – Asset logic and services
 
-2️⃣Frontend:
+**2️⃣ Frontend:**
 
 - `frontend/assets/` – Logo and images
-- `frontend/index.html` – Favicon, logo, application title and rest frontend html
+- `frontend/index.html` – Favicon, logo, application title, and other frontend elements
 
 ---
 
 > [!IMPORTANT]
-> When logging in for the first time, use the administrator credentials Username: `admin` and Password: `Admin@123`. For all other user accounts, the default password is their Employee Code. Users will be prompted to change their password after their first login and can update it again later from within the application.
+> When logging in for the first time, use the administrator credentials **Username:** `admin` and **Password:** `Admin@123`. For all other user accounts, the default password is their **Employee Code**. Users will be prompted to change their password after their first login and can update it again later from within the application.
+
+### Screenshots
