@@ -58,21 +58,7 @@ git clone https://github.com/yurehito/asset-management-system.git
 cd asset-management-system
 ```
 
-2️⃣ Install backend dependencies:
-
-```bash
-cd backend
-npm install
-```
-
-3️⃣ Install frontend dependencies:
-
-```bash
-cd ../frontend
-npm install
-```
-
-4️⃣ Environment Variables:
+2️⃣ Environment Variables:
 
 Create a `.env` file inside the `backend` directory.
 
@@ -83,15 +69,24 @@ PORT=5000
 ```
 
 Create a `.env` file inside the `frontend` directory as well.
+
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
 
-5️⃣ Seed Demo Data:
+3️⃣ Seed Demo Data & install dependencies (backend):
 
 ```bash
 cd backend
+npm install
 npm run seed
+```
+
+4️⃣ create a new termnial install & dependencies (frontend):
+
+```bash
+cd frontend
+npm install
 ```
 
 ### Run the Application
