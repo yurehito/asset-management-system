@@ -82,6 +82,11 @@ NODE_ENV=development
 PORT=5000
 ```
 
+Create a `.env` file inside the `frontend` directory as well.
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
 5️⃣ Seed Demo Data:
 
 ```bash
